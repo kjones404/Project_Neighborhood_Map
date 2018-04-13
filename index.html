@@ -20,24 +20,27 @@
       <div class="flex">
       <div class="left">
         <div clss="search">
-          <h2>Search by zip</h2>
-          <input type="text" placeholder="Enter A Zip Code">
+          <h2>Search By Zip:</h2>
+          <input id="focus" type="text" class="search" placeholder="Zip Code here" />
         </div>
-        <nav>
-        <i class="fas fa-leaf"></i>
-        <i class="fas fa-film"></i>
-        <i class="fas fa-gamepad"></i>
-        <i class="fas fa-utensils"></i>
-        </nav>
+          <div class="settings">
+            <i class="fas fa-leaf"></i>
+            <i class="fas fa-film"></i>
+            <i class="fas fa-gamepad"></i>
+            <i class="fas fa-utensils"></i>
+          </div>
       </div>
-      <div class="right">
-      map
+      <div id="map" class="right">
+
       </div>
       </div>
     </main>
     <footer>
-      <span>footer here</span>
+      <span class="flink"><i class="fab fa-github"></i> kjones404</span>
 
     </footer>
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.0.0.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPrVVZH6Xr1NuGm4P8XX2EcTDMYJG-PEU&callback=initMap" async defer></script>
+   <script src="js/app.js"></script>
   </body>
 </html>
