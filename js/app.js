@@ -12,26 +12,10 @@ function initMap() {
     map = new
     google.maps.Map(document.getElementById("map"), mapOptions);
 
-
-    var markers = [
-      {
-        latlong:{lat: 29.4241226, lng: -98.493629},
-        iconImg: "https://maps.google.com/mapfiles/ms/micons/ltblue-dot.png",
-        locTitle: "center",
-        content: " center of map "
-      },
-      {
-        latlong:{lat: 29.5351, lng: -98.6408},
-        iconImg: "https://maps.google.com/mapfiles/ms/micons/green-dot.png",
-        locTitle: "O. P. Schnabel Park",
-        content: "O. P. Schnabel Park is a 202-acre city park in the City of San Antonio, Texas. The park includes buildings for the YMCA program, ball fields, a basketball court, and several trails"
-      }
-    ];
-
      // loop through markers
-     for (var i = 0; i < markers.length; i++){
+     for (var i = 0; i < parkMarkers.length; i++){
        // add marker
-       addMarker(markers[i]);
+       addMarker(parkMarkers[i]);
      }
 
     // add marker function
