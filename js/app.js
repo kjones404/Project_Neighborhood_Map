@@ -18,6 +18,12 @@ function initMap() {
        addMarker(parkMarkers[i]);
      }
 
+     // loop through markers
+     for (var i = 0; i < movieMarkers.length; i++){
+       // add marker
+       addMarker(movieMarkers[i]);
+     }
+
     // add marker function
     function addMarker (location){
     var marker = new google.maps.Marker({
@@ -30,7 +36,7 @@ function initMap() {
 
     // info window
     var infowindow = new google.maps.InfoWindow({
-      content:location.content
+      content:location.locTitle
     });
 
     // marker event listener to add info window
