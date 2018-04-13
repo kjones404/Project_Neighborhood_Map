@@ -5,17 +5,30 @@ function initMap() {
 
     // map presets
     var mapOptions = {
-      zoom: 10,
+      zoom: 11,
       center: {lat: 29.4241226, lng: -98.493629}
     }
     // make map
     map = new
     google.maps.Map(document.getElementById("map"), mapOptions);
 
+      // loop through markers
+      for (var i = 0; i < foodMarkers.length; i++){
+        // add marker
+        addMarker(foodMarkers[i]);
+      }
+
+
      // loop through markers
      for (var i = 0; i < parkMarkers.length; i++){
        // add marker
        addMarker(parkMarkers[i]);
+     }
+
+     // loop through markers
+     for (var i = 0; i < arcadeMarkers.length; i++){
+       // add marker
+       addMarker(arcadeMarkers[i]);
      }
 
      // loop through markers
