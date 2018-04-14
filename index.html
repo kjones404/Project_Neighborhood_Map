@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <title>Family day - Find A Place to Play</title>
-    <link href="https://fonts.googleapis.com/css?family=Rock+Salt|Amatic+SC" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Rock+Salt|Amatic+SC|Open+Sans" rel="stylesheet">
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
 
   </head>
@@ -20,15 +20,26 @@
       <div class="flex">
       <div class="left">
         <div clss="search">
-          <h2>Search By Zip:</h2>
-          <input id="focus" type="text" class="search" placeholder="Zip Code here" />
-        </div>
-          <div class="settings">
-            <i class="fas fa-leaf"></i>
-            <i class="fas fa-film"></i>
-            <i class="fas fa-gamepad"></i>
-            <i class="fas fa-utensils"></i>
+          <h2>What are you looking for?</h2>
+          <div class="dropdown">
+            <select name="select">
+              <option value="all">Everything</option>
+              <option value="food">Food</option>
+              <option value="movie">Movies</option>
+              <option value="arcade">Arcades</option>
+              <option value="park">Parks</option>
+            </select>
           </div>
+          <div class="key">
+            <span class="pink"><i class="fas fa-utensils"></i> Food</span>
+            <span class="blue"><i class="fas fa-film"></i> Movies</span>
+            <span class="orange"><i class="fas fa-gamepad"></i> Arcades</span>
+            <span class="green"><i class="fas fa-leaf"></i> Parks</span>
+          </div>
+        </div>
+        <div class="list">
+        <span>list here </span>
+        </div>
       </div>
       <div id="map" class="right">
 

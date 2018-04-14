@@ -36,12 +36,6 @@ var foodMarkers = [
     content: "Tex-Mex eatery offering puffy tacos & margaritas in bright digs with live music & a patio."
   },
   {
-    latlong:{lat: 32.9546, lng: -96.8253},
-    iconImg: "https://maps.google.com/mapfiles/ms/micons/pink-dot.png",
-    locTitle: "The Magic Time Machine",
-    content: "Theme restaurant with costumed staff serving an American menu, including kids' options."
-  },
-  {
     latlong:{lat: 29.5483, lng: -98.5086},
     iconImg: "https://maps.google.com/mapfiles/ms/micons/pink-dot.png",
     locTitle: "Incredible Pizza Company",
