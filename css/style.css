@@ -101,9 +101,11 @@ select {
 
 .left {
   width: 250px;
+  height: 570px;
   background-color: #CFEEFE;
   color: #222;
   padding: 20px 10px 20px 5px;
+  overflow-x: hidden;
 }
 
 .key {
@@ -126,6 +128,10 @@ select {
 
 .green {
   background-color: #00e64d;
+}
+
+.list {
+  margin: 10px auto 20px auto;
 }
 
 .right {

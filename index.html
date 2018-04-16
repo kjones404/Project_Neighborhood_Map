@@ -21,14 +21,8 @@
       <div class="left">
         <div clss="search">
           <h2>What are you looking for?</h2>
-          <div class="dropdown">
-            <select name="select">
-              <option value="all">Everything</option>
-              <option value="food">Food</option>
-              <option value="movie">Movies</option>
-              <option value="arcade">Arcades</option>
-              <option value="park">Parks</option>
-            </select>
+          <div class="search">
+            <input type="text" class="form-control" placeholder="Search" name="w" data-bind="textInput: searchItem, valueUpdate: 'afterkeydown'">
           </div>
           <div class="key">
             <span class="pink"><i class="fas fa-utensils"></i> Food</span>
@@ -38,7 +32,10 @@
           </div>
         </div>
         <div class="list">
-        <span>list here </span>
+        <h2>Select A Place to Play:</h2>
+        <ul data-bind="foreach: dataList">
+          <li data-bind="text: locTitle">monkey</li>
+        </ul>
         </div>
       </div>
       <div id="map" class="right">
@@ -52,10 +49,7 @@
     </footer>
     <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.0.0.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPrVVZH6Xr1NuGm4P8XX2EcTDMYJG-PEU&callback=initMap" async defer></script>
-    <script src="js/foodData.js"></script>
-    <script src="js/arcadeData.js"></script>
-    <script src="js/movieData.js"></script>
-    <script src="js/parkData.js"></script>
+    <script src="js/data.js"></script>
    <script src="js/app.js"></script>
   </body>
 </html>
