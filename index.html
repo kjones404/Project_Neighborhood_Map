@@ -21,8 +21,8 @@
       <div class="left">
         <div clss="search">
           <h2>What are you looking for?</h2>
-          <div class="search">
-            <input type="text" class="form-control" placeholder="Search" name="w" data-bind="textInput: searchItem, valueUpdate: 'afterkeydown'">
+          <div class="dropdown">
+            <select data-bind="options: filter, value: selectedFilter"></select>
           </div>
           <div class="key">
             <span class="pink"><i class="fas fa-utensils"></i> Food</span>
@@ -34,7 +34,7 @@
         <div class="list">
         <h2>Select A Place to Play:</h2>
         <ul data-bind="foreach: dataList">
-          <li data-bind="text: locTitle">monkey</li>
+          <li data-bind="text: title, click: $parent.openWindow, visible: show" ></li>
         </ul>
         </div>
       </div>

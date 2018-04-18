@@ -1,5 +1,6 @@
 // global var
 var map;
+var marker;
 
 
 // load map
@@ -14,59 +15,67 @@ function initMap() {
   map = new
   google.maps.Map(document.getElementById("map"), mapOptions);
 
-  ko.applyBindings(new ViewModel());
 
-}
+  // markers ver 2 working
+  for (i = 0; i < data.length; i++) {
+    var position = data[i].latlong;
+    var icon = data[i].iconImg;
+    var title = data[i].locTitle;
 
-// add marker function
-var addMarker  = function(data) {
-  var self = this;
-
-  this.position = data.latlong,
-  this.icon = data.iconImg,
-  this.title = data.locTitle,
-
-  this.marker = new google.maps.Marker({
-    position: this.position,
-    icon: this.icon,
-    title: this.title,
-    map: map,
-    animation: google.maps.Animation.DROP
-  });
-
-  // info window
-  var infowindow = new google.maps.InfoWindow({
-    content:this.title
-  });
-
-  // marker event listener to add info window
-  this.marker.addListener("click", function() {
-    infowindow.open(map, this);
-  });
-}
-
-var addList = function (data) {
-  this.title = ko.observerable(data.locTitle);
+    marker = new google.maps.Marker({
+      map: map,
+      position: position,
+      icon: icon,
+      title: title,
+      animation: google.maps.Animation.DROP
+    });
+    vm.dataList()[i].marker = marker;
+  }
+  ko.applyBindings(vm);
 }
 
 var ViewModel = function () {
   var self = this;
 
-  // create array for sidebar list
+  // build locations from data.js
+  var Location = function(data) {
+    this.position = data.latlong;
+    this.icon = data.iconImg;
+    this.title = data.locTitle;
+    this.type = data.type;
+    this.show = ko.observable(true);
+  };
+
+  // create array for dynamic list
   this.dataList = ko.observableArray([]);
 
-  // loop through markers
-  for (var i = 0; i < data.length; i++){
-    // add marker
-    addMarker(data[i]);
-  }
+  // add location data to dynamic list
+  data.forEach(function(dataItem) {
+    self.dataList.push(new Location(dataItem));
+  });
 
-  // loop through locations
-  for (var i = 0; i < data.length; i++){
-    // add to sidebar
-    this.dataList.push(data[i])
-  }
+  // set values for dropdown/filter menu in index.html
+  self.filter = ['Everything', 'Food', 'Movies', 'Arcades', 'Parks'];
+  self.selectedFilter = ko.observable(self.filter[0]);
 
-
-
+  self.filterLocation = ko.computed(function() {
+    var locationList = self.dataList();
+    var selectedFilter = self.selectedFilter();
+    // loop through list of locations to match filter choice from filter dropdown
+    for (var i = 0; i < locationList.length; i++) {
+      if (selectedFilter === self.filter[0]) {
+        locationList[i].show(true);
+      if (marker) {
+        locationList[i].marker.setVisible(true);
+        }
+      } else if (selectedFilter !== locationList[i].type) {
+        locationList[i].show(false);
+        locationList[i].marker.setVisible(false);
+      } else {
+        locationList[i].show(true);
+        locationList[i].marker.setVisible(true);
+      }
+    }
+  });
 }
+var vm = new ViewModel();
