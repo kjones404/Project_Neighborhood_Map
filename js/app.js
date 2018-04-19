@@ -9,19 +9,21 @@ function initMap() {
   // map presets
   var mapOptions = {
     zoom: 11,
+    // make center of map San Antonio
     center: {lat: 29.4241226, lng: -98.493629}
   }
-  // make map
+  // create new map using map options
   map = new
   google.maps.Map(document.getElementById("map"), mapOptions);
 
 
-  // markers ver 2 working
+  // loop through data to assign values for markers
   for (i = 0; i < data.length; i++) {
     var position = data[i].latlong;
     var icon = data[i].iconImg;
     var title = data[i].locTitle;
 
+    // create markers
     marker = new google.maps.Marker({
       map: map,
       position: position,
@@ -29,8 +31,36 @@ function initMap() {
       title: title,
       animation: google.maps.Animation.DROP
     });
+    // link marker data to setVisible
     vm.dataList()[i].marker = marker;
+
+    // set width of pop up window
+    var infoWindow = new google.maps.InfoWindow({
+      maxWidth: 100
+    });
+
+    // add click event to bounce and pop up info window
+    marker.addListener('click', function() {
+      selected(this);
+      loadInfo(this, infoWindow);
+    });
+
+    // set maker to bounce once on click
+    function selected(marker) {
+        marker.setAnimation(google.maps.Animation.BOUNCE);
+        setTimeout(function() {
+          marker.setAnimation(null)
+        }, 750);
+    }
+
+    // load content into pop up window
+    function loadInfo(marker, infoWindow) {
+      infoWindow.setContent(marker.title);
+      infoWindow.open(map, marker);
+    };
+
   }
+  // enable use of variables from the viewModel
   ko.applyBindings(vm);
 }
 
