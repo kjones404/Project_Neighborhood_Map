@@ -13,28 +13,29 @@
         <div class="container">
           <div class="titleBox">
             <h1>Family day</h1><span class="subTitle">Find A Place to Play</span>
+            <a href="#" class="hamburger" onclick="toggleSidebar()"><i class="fas fa-bars"></i></a>
           </div>
         </div>
     </header>
     <main>
       <div class="flex">
-      <div class="left">
+      <div id="sidebar" class="left">
         <div clss="search">
           <h2>What are you looking for?</h2>
           <div class="dropdown">
             <select data-bind="options: filter, value: selectedFilter"></select>
           </div>
           <div class="key">
-            <span class="pink"><i class="fas fa-utensils"></i> Food</span>
-            <span class="blue"><i class="fas fa-film"></i> Movies</span>
-            <span class="orange"><i class="fas fa-gamepad"></i> Arcades</span>
-            <span class="green"><i class="fas fa-leaf"></i> Parks</span>
+            <div class="pink"><i class="fas fa-utensils"></i> Food</div>
+            <div class="blue"><i class="fas fa-film"></i> Movies</div>
+            <div class="orange"><i class="fas fa-gamepad"></i> Arcades</div>
+            <div class="green"><i class="fas fa-leaf"></i> Parks</div>
           </div>
         </div>
         <div class="list">
         <h2>Select A Place to Play:</h2>
         <ul data-bind="foreach: dataList">
-          <li data-bind="text: title, click: $parent.openWindow, visible: show" ></li>
+          <a href="#" class="basic listItem" data-bind="text: title, click: $parent.setPop, visible: show"></a>
         </ul>
         </div>
       </div>

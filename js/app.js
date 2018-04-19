@@ -59,6 +59,7 @@ function initMap() {
       infoWindow.open(map, marker);
     };
 
+
   }
   // enable use of variables from the viewModel
   ko.applyBindings(vm);
@@ -106,6 +107,16 @@ var ViewModel = function () {
         locationList[i].marker.setVisible(true);
       }
     }
+
+  //  open pop up window when list item is clicked
+  self.setPop = function(list) {
+  google.maps.event.trigger(list.marker, 'click');
+};
   });
 }
 var vm = new ViewModel();
+
+// toggle side bar
+function toggleSidebar() {
+  document.getElementById("sidebar").classList.toggle("active");
+};
