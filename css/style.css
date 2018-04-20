@@ -24,7 +24,6 @@ header {
 
 main {
   font-family: 'Amatic SC', cursive;
-
 }
 
 footer {
@@ -46,21 +45,15 @@ h2 {
   margin: 0;
 }
 
-input[type=text] {
-    border: 1px solid #222;
-    width: 100%;
-    border-radius: 4px;
-}
-
 ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    width: 100%;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
 }
 
 li {
-    display: inline-block;
+  display: inline-block;
 }
 
 select {
@@ -73,6 +66,7 @@ select {
   color: #eee;
 }
 
+/* Links */
 a.basic {
   color: #222;
   text-decoration: none;
@@ -84,7 +78,7 @@ a.basic:hover {
 }
 
 a.basic:active {
-    background-color: #eee;
+  background-color: #eee;
 }
 
 a.hamburger {
@@ -94,6 +88,15 @@ a.hamburger {
 
 a.hamburger:hover {
   color: #eee;
+}
+
+a.foot {
+  color: #eee;
+  text-decoration: none;
+}
+
+a.foot:hover {
+  color: #f47;
 }
 
 .flex {
@@ -107,12 +110,12 @@ a.hamburger:hover {
 
 .container {
   position: relative;
-
   width: 100%;
 }
 
+/* Header */
 .titleBox {
-    text-align: right;
+  text-align: right;
   margin: 0 30px 5px 0;
 }
 
@@ -130,6 +133,7 @@ a.hamburger:hover {
   display: block;
 }
 
+/* Sidebar */
 #sidebar {
   position: relative;
   left: 0;
@@ -185,9 +189,9 @@ a.hamburger:hover {
   display: block;
   font-weight: bold;
   margin: 3px auto 3px auto;
-
 }
 
+/* Map */
 .right {
   background-color: #eee;
   width: 100%;
